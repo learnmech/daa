@@ -1,0 +1,67 @@
+using System;
+// Base class Shape
+class Shape
+{
+// Member functions
+public virtual void Draw()
+{
+Console.WriteLine("Drawing shape...");
+}
+public virtual void Erase()
+{
+Console.WriteLine("Erasing shape...");
+}
+}
+// Subclass Circle
+class Circle : Shape
+{
+// Member functions
+public override void Draw()
+{
+Console.WriteLine("Drawing circle...");
+}
+public override void Erase()
+{
+Console.WriteLine("Erasing circle...");
+}
+}
+// Subclass Triangle
+class Triangle : Shape
+{
+// Member functions
+public override void Draw()
+{
+Console.WriteLine("Drawing triangle...");
+}
+public override void Erase()
+{
+Console.WriteLine("Erasing triangle...");
+}
+}
+// Subclass Square
+class Square : Shape
+{
+// Member functions
+public override void Draw()
+{
+Console.WriteLine("Drawing square...");
+}
+public override void Erase()
+{
+Console.WriteLine("Erasing square...");
+}
+}
+class Program
+{
+static void Main(string[] args)
+{
+// Polymorphism demonstration
+Shape[] shapes = { new Circle(), new Triangle(), new Square() };
+foreach (Shape shape in shapes)
+{
+shape.Draw();
+shape.Erase();
+Console.WriteLine();
+}
+}
+}
