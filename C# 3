@@ -1,0 +1,30 @@
+using System;
+class Program
+{
+static void Main()
+{
+Console.Write("Enter a string: ");
+string? inputString = Console.ReadLine();
+Console.WriteLine("All substrings:");
+// Call the function to print all substrings
+PrintAllSubstrings(inputString);
+}
+static void PrintAllSubstrings(string? str)
+{
+if (str != null)
+{
+// Nested loops to generate all possible substrings
+for (int start = 0; start < str.Length; start++)
+{
+for (int length = 1; length <= str.Length - start; length++)
+{
+// Use the Substring method to extract the substring
+string substring = str.Substring(start, length);
+// Print the substring
+Console.WriteLine(substring);
+}
+Console.WriteLine("\n");
+}
+}
+}
+}
