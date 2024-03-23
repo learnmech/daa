@@ -1,0 +1,66 @@
+ using System;
+class Stack<T>
+{
+private T[] array;
+private int top;
+private int maxSize;
+public Stack(int size)
+{
+array = new T[size];
+top = -1;
+maxSize = size;
+}
+public void Push(T item)
+{
+if (top == maxSize - 1)
+{
+Console.WriteLine("Stack Overflow. Cannot push {0}.", item);
+}
+else
+{
+array[++top] = item;
+Console.WriteLine("{0} pushed to stack.", item);
+}
+}
+public T? Pop() // Return type marked as nullable
+{
+if (top == -1)
+{
+Console.WriteLine("Stack Underflow. Cannot pop from an empty 
+stack.");
+return default!; // Use null-forgiving operator
+}
+else
+{
+T poppedItem = array[top--];
+Console.WriteLine("{0} popped from stack.", poppedItem);
+return poppedItem;
+}
+}
+}
+class Program
+{
+static void Main()
+{
+// Create a stack of integers
+Stack<int> intStack = new Stack<int>(5);
+// Push some elements onto the stack
+intStack.Push(10);
+intStack.Push(20);
+intStack.Push(30);
+// Pop elements from the stack
+int? poppedItem1 = intStack.Pop();
+int? poppedItem2 = intStack.Pop();
+// Display popped elements
+Console.WriteLine("Popped items: {0}, {1}", poppedItem1, poppedItem2);
+// Create a stack of strings
+Stack<string> stringStack = new Stack<string>(3);
+// Push some elements onto the stack
+stringStack.Push("Hello");
+stringStack.Push("World");
+// Pop elements from the stack
+string? poppedString = stringStack.Pop();
+// Display popped element
+Console.WriteLine("Popped string: {0}", poppedString);
+}
+}
