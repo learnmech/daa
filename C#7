@@ -1,0 +1,31 @@
+using System;
+using System.IO;
+class Program
+{
+static void Main()
+{
+Console.WriteLine("Enter the path of the source text file:");
+string? sourceFilePath = Console.ReadLine();//? is used for making 
+sourceFilePath nullable
+Console.WriteLine("Enter the path of the destination text file:");
+string? destinationFilePath = Console.ReadLine();//? is used for 
+making destinationFilePath nullable
+try
+{
+if (sourceFilePath != null)
+{
+// Read the content from the source file
+string? content = File.ReadAllText(sourceFilePath!);//! is a null-
+forgiving operator
+// Write the content to the destination file
+File.WriteAllText(destinationFilePath!, content);//! is a null-
+forgiving operator
+}
+Console.WriteLine("File content copied successfully!");
+}
+catch (Exception ex)
+{
+Console.WriteLine($"An error occurred: {ex.Message}");
+}
+}
+}
